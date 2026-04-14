@@ -4,12 +4,11 @@ This folder contains the Arduino Mega programs used for gas sensing data acquisi
 
 ## Overview
 
-The purpose of these Arduino sketches is to collect raw gas sensor data and environmental data for pineapple ripeness analysis.  
-The system uses multiple gas sensors together with a BME280 sensor, and outputs the measurements through the serial monitor in CSV-style format for later preprocessing, feature extraction, and machine learning model training.
+The purpose of these Arduino sketches is to collect raw gas sensor data and environmental data for pineapple ripeness analysis. The system uses multiple gas sensors together with a BME280 environmental sensor and sends the measurements through serial output for later preprocessing, feature extraction, and machine learning model training.
 
 ## Hardware
 
-The data acquisition system is based on:
+This data acquisition system is based on the following components:
 
 - Arduino Mega 2560
 - MQ2 gas sensor
@@ -31,84 +30,76 @@ The analog input pins are assigned as follows:
 - TGS2602 -> A4
 - TGS2620 -> A5
 
-The BME280 is connected through I2C.
+The BME280 sensor is connected through I2C communication.
 
 ## Files
 
-### `air_TGS2620.ino`
-This sketch is used to measure the air background condition inside the container.
+### `air_baseline_collection.ino`
+
+This program is used to collect air baseline data before measuring pineapple samples.
 
 Main functions:
-- Preheats all sensors for 5 minutes
-- Waits 30 seconds before recording
-- Collects air baseline data
-- Records gas sensor values and environmental values
-- Outputs formatted serial data for later analysis
 
-This program is mainly used to establish the background reference of the sensing environment.
+- preheats the gas sensors
+- measures the background air condition
+- records raw gas sensor values
+- records temperature, humidity, and pressure
+- sends the results through serial output
 
-### `pineapple_TGS2620.ino`
-This sketch is used to measure pineapple gas signals inside the container.
+This file is mainly used to establish the baseline condition of the sensing environment.
+
+### `pineapple_sample_collection.ino`
+
+This program is used to collect gas sensing data from pineapple samples.
 
 Main functions:
-- Preheats all sensors for 5 minutes
-- Waits 30 seconds before recording
-- Reads raw values from all gas sensors
-- Reads temperature, humidity, and pressure from BME280
-- Performs basic validation for abnormal values
-- Computes baseline from the first 30 valid samples
-- Outputs time-series sensor data through serial output
 
-This program is mainly used to capture volatile gas patterns released by pineapple samples.
+- preheats the gas sensors
+- reads raw values from all gas sensors
+- reads temperature, humidity, and pressure from BME280
+- performs basic validation for invalid readings
+- computes baseline values from early valid samples
+- sends time-series sensor data through serial output
+
+This file is mainly used to capture volatile gas patterns released by pineapple samples for later ripeness analysis.
 
 ## Data Output
 
-The serial output is designed for data logging and later model development.  
-The recorded fields include:
+The serial output is designed for data logging and later model development. The recorded information may include:
 
-- Timestamp
-- Raw sensor readings
-- Temperature
-- Humidity
-- Pressure
-- Log-transformed sensor values
-- Delta log values
-- Moving-average log values
+- timestamp
+- raw sensor readings
+- temperature
+- humidity
+- pressure
+- transformed sensor values
+- delta values
+- moving-average values
 
-The output can be saved as CSV-like text and used in the data preprocessing and machine learning pipeline.
+The output can be saved and further processed in the data preprocessing and machine learning pipeline.
 
 ## Workflow
 
 The general workflow is:
 
-1. Upload the selected Arduino sketch to Arduino Mega
-2. Place the sensors and sample container in the experiment setup
-3. Open the serial monitor or serial logger
-4. Wait for the preheating stage to finish
-5. Start recording
-6. Save the serial output for later processing
+1. Upload the selected Arduino sketch to Arduino Mega.
+2. Connect the sensors and prepare the measurement setup.
+3. Open the serial monitor or serial logging tool.
+4. Wait for the sensor preheating stage to finish.
+5. Start recording the measurement data.
+6. Save the serial output for later preprocessing and analysis.
 
 ## Notes
 
-- `air_TGS2620.ino` is used for air/background measurement
-- `pineapple_TGS2620.ino` is used for pineapple sample measurement
-- The sampling interval is 1 second
-- The maximum number of samples is 900
-- The first 30 valid samples are used to compute the baseline
-- The BME280 address is checked at both `0x76` and `0x77`
+- `air_baseline_collection.ino` is used for air/background measurement.
+- `pineapple_sample_collection.ino` is used for pineapple sample measurement.
+- The collected data is later used for preprocessing, feature engineering, model training, and deployment.
+- These Arduino programs are one part of the complete pineapple ripeness detection pipeline.
 
 ## Project Context
 
-These Arduino programs are part of our electronic nose based pineapple ripeness detection system.  
-The collected sensor data is later used for:
-
-- data cleaning
-- baseline correction
-- feature engineering
-- model training
-- ripeness classification
-- deployment to Raspberry Pi and web-based interfaces
+These Arduino sketches are part of our graduation project on electronic-nose-based non-destructive pineapple ripeness detection. The collected gas sensing data is later used in the machine learning workflow and deployed to Raspberry Pi and related system interfaces.
 
 ## Author
 
-This folder is part of our graduation project on non-destructive pineapple ripeness detection using an electronic nose system.
+This folder is part of our graduation project repository.
