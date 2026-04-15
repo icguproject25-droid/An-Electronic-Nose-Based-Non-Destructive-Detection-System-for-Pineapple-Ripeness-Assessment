@@ -117,7 +117,7 @@ pip install -r requirements.txt
 ### 專案檔案結構
 
 ```
-📦 pineapple-ripeness-detection
+📦 enose_model_training
 ├── 📄 deploystudent.pkl          # ExtraTrees 部署模型 (6.2 MB)
 ├── 📄 featurecolumns.json        # 11 項部署特徵名稱清單
 ├── 📄 deploymeta.json            # 模型元資料 (Stage 映射)
@@ -351,22 +351,11 @@ feature/*   ← 功能開發分支（各模組獨立開發）
 
 ---
 
-## 🔮 未來擴充方向
-
-- [ ] 支援更多鳳梨品種（需重新蒐集訓練資料並 fine-tune）
-- [ ] 多顆鳳梨批次同時量測機制
-- [ ] 結合影像辨識模組（多模態整合：氣味 + 視覺）
-- [ ] 自動備份與系統異常自動復原機制
-- [ ] 多語系支援（日文、東南亞語系等）
-- [ ] 模型版本自動管理與特徵欄位對應驗證
-
----
-
 ## 👥 開發團隊
 
-> 本專題由資訊管理系 / 資訊工程系專題小組共同開發
+> 本專題由長庚大學(Chang Gung University)B1144143陳玟妤、B1229062林冠妤、B1229066陳怡禎、B1229068廖文歆共同開發
 
-| 角色 | 負責項目 |
+| 部分 | 細節 |
 |------|----------|
 | 硬體工程 | 感測器電路設計、Arduino 韌體開發 |
 | 模型工程 | 特徵工程、Teacher-Student 模型訓練與部署 |
