@@ -117,27 +117,47 @@ pip install -r requirements.txt
 ### 專案檔案結構
 
 ```
-📦 enose_model_training
-├── 📄 deploystudent.pkl          # ExtraTrees 部署模型 (6.2 MB)
-├── 📄 featurecolumns.json        # 11 項部署特徵名稱清單
-├── 📄 deploymeta.json            # 模型元資料 (Stage 映射)
-├── 📄 airbase.json               # 空氣基準線參數（校正後產生）
-├── 📄 requirements.txt           # Python 相依套件清單
-├── 🐍 calibrate_air_30s.py       # 空氣基線校正主程式
-├── 🐍 inference_30s.py           # 30 秒窗口推論主程式
-├── 🐍 applocal.py                # Flask 模擬測試介面
-└── 📁 app/
-    ├── 📁 consumer/              # 消費端 React Native App
-    │   ├── Home.tsx
-    │   ├── ScanProcess.tsx
-    │   ├── Result.tsx
-    │   └── History.tsx
-    └── 📁 farmer/                # 農民端 React Native App
-        ├── FarmerHome.tsx
-        ├── BatchCreate.tsx
-        ├── BatchScan.tsx
-        ├── BatchResult.tsx
-        └── ReportAnalysis.tsx
+📦 AN-ELECTRONIC-NOSE-BASED-NO...
+│
+├── 📁 arduino_mega_data_collection/          # Arduino 資料擷取韌體
+│   ├── 🔌 air_baseline_collection.ino        # 空氣基線蒐集程式
+│   ├── 🔌 pineapple_sample_collection.ino    # 鳳梨樣本蒐集程式
+│   └── 📄 README.md
+│
+├── 📁 enose_model_training/                  # 模型訓練工作區
+│   └── 📁 orkspace/
+│       ├── 📁 catboost_info/                 # CatBoost 訓練紀錄
+│       ├── 📁 data/                          # 原始量測資料
+│       ├── 📁 deploy_rpi_catboost/           # CatBoost 部署版本
+│       ├── 📁 deploy_rpi_et_10s/             # ExtraTrees 10s 版本
+│       ├── 📁 deploy_rpi_et_10s_nodeay/
+│       ├── 📁 deploy_rpi_et_30s_noday/
+│       ├── 📁 deploy_rpi_et_30s_noday_s3_sensitive/
+│       ├── 📁 deploy_rpi_et_30s_nodeay/
+│       ├── 📁 deploy_rpi_student/            # Student 模型部署版本
+│       ├── 📁 deploy_rpi_student_short/
+│       ├── 📁 models/                        # 儲存的模型檔案
+│       ├── 📁 reports/                       # 訓練報表與評估結果
+│       ├── {} cutpoints.json                 # 閾值設定
+│       ├── 📊 data_label_audit_report.xlsx   # 資料標注稽核報表
+│       ├── {} feature_columns.json           # 特徵欄位定義
+│       ├── 📓 labeling_perfect_final.ipynb   # 標注最終版 Notebook
+│       ├── 📊 labeling.xlsx                  # 標注資料表
+│       ├── 📄 model_final.pkl                # 最終訓練模型
+│       ├── 🖼️ stage_timeline.png             # 成熟度時間軸圖
+│       └── 📄 README.md
+│
+├── 📁 files(設計文件&簡報)/                  # 設計規格書與簡報
+│
+├── 📁 pineapple_deployment_system/           # Raspberry Pi 部署系統
+│   ├── 🐍 app_local.py                       # Flask 模擬測試介面
+│   ├── 🐍 calibrate_air_30s.py              # 空氣基線校正主程式
+│   ├── 🐍 inference_30s.py                  # 30 秒窗口推論主程式
+│   ├── 🔌 use_this.ino                       # Arduino 搭配推論用韌體
+│   └── 📄 README.md
+│
+├── 🎬 114_2_midterm_demo_video.mov           # 期中成果展示影片
+└── 📄 README.md
 ```
 
 ---
