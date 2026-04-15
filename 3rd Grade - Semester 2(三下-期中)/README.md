@@ -368,21 +368,6 @@ feature/*   ← 功能開發分支（各模組獨立開發）
 | `featurecolumns.json` | 11 項部署特徵欄位定義 |
 | `deploymeta.json` | Stage 映射與模型元資料 |
 
----
 
-## 📜 授權
-
-本專案採用 [MIT License](LICENSE) 授權。
-
----
-
-<div align="center">
-
-**🍍 鳳梨成熟度辨識系統 | Pineapple Ripeness Detection System**
-
-*繳交日期：2026 年 04 月 20 日*
-
-</div>
-```
 
 ***
