@@ -11,6 +11,7 @@
 打開終端機（CMD 或 Terminal），進入 expo 資料夾：
 
 Bash
+
 cd expo
 2. 安裝依賴套件
 由於專案包含多種 React 套件，請使用以下指令以確保版本相容性：
