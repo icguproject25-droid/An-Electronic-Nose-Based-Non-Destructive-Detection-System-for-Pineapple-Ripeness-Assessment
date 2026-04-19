@@ -8,22 +8,31 @@
 請確保你的電腦已安裝 Node.js。
 
 1. 進入專案目錄
+
 打開終端機（CMD 或 Terminal），進入 expo 資料夾：
 
 Bash
 
 cd expo
+
 2. 安裝依賴套件
+
 由於專案包含多種 React 套件，請使用以下指令以確保版本相容性：
 
 Bash
+
 npm install --legacy-peer-deps
+
 3. 啟動開發伺服器
+
 執行 Expo 啟動指令：
 
 Bash
+
 npx expo start
+
 4. 預覽方式
+
 手機預覽： 在手機安裝 Expo Go App，並掃描終端機顯示的 QR Code。
 
 網頁預覽： 在終端機按下 w 鍵開啟瀏覽器模式。
@@ -33,7 +42,8 @@ npx expo start
 📱 系統架構與功能
 本系統採雙端設計，分別對應一般消費者與農業生產者：
 
-A. 消費端 App (Consumer Side)
+A. 消費端 App (Consumer_pineapple-ripeness-main)
+
 重點：直覺、互動、知識傳遞。
 
 首頁 (Home)： 快速啟動掃描，支援中英雙語即時切換。
@@ -46,7 +56,8 @@ A. 消費端 App (Consumer Side)
 
 鳳梨知識庫： 提供選購與保存的教育內容。
 
-B. 農民端 App (Farmer Side)
+B. 農民端 App (Farmer_pineapple-main)
+
 重點：效率、批次管理、統計分析。
 
 批次管理： 支援建立批次編號，進行多顆鳳梨連續掃描。
