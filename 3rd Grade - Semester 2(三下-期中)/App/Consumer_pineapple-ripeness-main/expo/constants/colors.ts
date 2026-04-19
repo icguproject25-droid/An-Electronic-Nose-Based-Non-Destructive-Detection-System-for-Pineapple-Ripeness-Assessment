@@ -1,0 +1,18 @@
+export const Colors = {
+  pineappleYellow: '#FFD700',
+  pineappleGold: '#F4C430',
+  leafGreen: '#4B5320',
+  ripeOrange: '#FFA500',
+  freshGreen: '#7CB518',
+  transitionYellow: '#C5B358',
+  overripeBrown: '#8B4513',
+  unripeGreen: '#228B22',
+  white: '#FFFFFF',
+  black: '#1A1A1A',
+  cream: '#FFF8DC',
+  warmWhite: '#FFFEF0',
+  shadow: 'rgba(0, 0, 0, 0.15)',
+  textDark: '#2D2D2D',
+  textLight: '#6B6B6B',
+  cardBg: 'rgba(255, 255, 255, 0.95)',
+};
